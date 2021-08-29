@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" 
+		  "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<!-- <!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd"> -->
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
 	<!-- Console Appenders -->
@@ -22,32 +24,32 @@
 	
 	
 	<!-- Application Loggers -->
-	<logger name="com.myspring.pro27">
-		<level value="info" />
+	<logger name="com.myspring.pro27">		<!-- 해당 패키지에 존재하는 클래스들의 로그 레벨을 debug로 설정 -->
+		<level value="debug" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	
 	<logger name="org.springframework.beans">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	
 	<logger name="org.springframework.context">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 
 	<logger name="org.springframework.web">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 
 	<!-- Root Logger -->
 	<root>
 		<priority value="debug" />
-		<appender-ref ref="console" />
-		<appender-ref ref="dailyFileAppender" />
+		<appender-ref ref="console" />				<!--  애플리케이션 전체 로그를 콘솔로 출력합니다 -->
+		<appender-ref ref="dailyFileAppender" />	<!-- 애플리케이션 전체 로그를 파일로 출력합니다 -->
 	</root>
 	
 </log4j:configuration>

@@ -19,7 +19,9 @@
   <tr>
      <td>
 		<a href="${contextPath}/main.do">
-			<img src="${contextPath}/resources/image/duke_swing.gif"  />
+			<img src="${contextPath}/resources/image/동경dog.jpg" width="100" height="100"  />
+<%-- 			<img src="${contextPath}/resources/image/duke_swing.gif"  /> --%>
+			<!-- src/main/webapp    /resources/image/duke_swing.gif -->
 		</a>
      </td>
      <td>

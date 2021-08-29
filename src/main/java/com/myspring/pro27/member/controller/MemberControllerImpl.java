@@ -26,7 +26,10 @@ import com.myspring.pro27.member.vo.MemberVO;
 @Controller("memberController")
 //@EnableAspectJAutoProxy
 public class MemberControllerImpl   implements MemberController {
+	
+	//LoggerFactory 클래스를 이용해 Logger 클래스 객체를 가져온다
 	private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);
+	
 	@Autowired
 	private MemberService memberService;
 	@Autowired
@@ -38,8 +41,12 @@ public class MemberControllerImpl   implements MemberController {
 		String viewName = getViewName(request);
 //		String viewName = (String)request.getAttribute("viewName");
 		//System.out.println("viewName: " +viewName);
+		
+		//Logger 클래스의 info() 메서드로 로그 메세지 레벨을 info로 설정한다
 		logger.info("viewName: "+ viewName);
+		//Logger 클래스의 debug() 메서드로 로그 메세지 레벨을 debug로 설정한다		
 		logger.debug("viewName: "+ viewName);
+		
 		List membersList = memberService.listMembers();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("membersList", membersList);
@@ -81,18 +88,18 @@ public class MemberControllerImpl   implements MemberController {
 	public ModelAndView login(@ModelAttribute("member") MemberVO member,
 				              RedirectAttributes rAttr,
 		                       HttpServletRequest request, HttpServletResponse response) throws Exception {
-	ModelAndView mav = new ModelAndView();
-	memberVO = memberService.login(member);
-	if(memberVO != null) {
-		    HttpSession session = request.getSession();
-		    session.setAttribute("member", memberVO);
-		    session.setAttribute("isLogOn", true);
-		    mav.setViewName("redirect:/member/listMembers.do");
-	}else {
-		    rAttr.addAttribute("result","loginFailed");
-		    mav.setViewName("redirect:/member/loginForm.do");
-	}
-	return mav;
+		ModelAndView mav = new ModelAndView();
+		memberVO = memberService.login(member);
+		if(memberVO != null) {
+			    HttpSession session = request.getSession();
+			    session.setAttribute("member", memberVO);
+			    session.setAttribute("isLogOn", true);
+			    mav.setViewName("redirect:/member/listMembers.do");
+		}else {
+			    rAttr.addAttribute("result","loginFailed");
+			    mav.setViewName("redirect:/member/loginForm.do");
+		}
+		return mav;
 	}
 
 	@Override

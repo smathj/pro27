@@ -11,20 +11,20 @@
       <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
    </definition>
 
-   <definition name="main" extends="baseLayout">
+   <definition name="main" extends="baseLayout">				<!-- Controller 리턴하는 view 이름 -->
       <put-attribute name="title" value="메인페이지" />
       <put-attribute name="body" value="/WEB-INF/views/main.jsp" />
    </definition>
 
 
-   <definition name="/member/listMembers" extends="baseLayout">
+   <definition name="/member/listMembers" extends="baseLayout">	<!-- Controller 리턴하는 view 이름 -->
       <put-attribute name="title" value="회원목록창" />
       <put-attribute name="body" value="/WEB-INF/views/member/listMembers.jsp" />
    </definition>
    
 
     
-   <definition name="/member/loginForm" extends="baseLayout">
+   <definition name="/member/loginForm" extends="baseLayout">	<!-- Controller 리턴하는 view 이름 -->
       <put-attribute name="title" value="로그인창" />
       <put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp" />
    </definition>
