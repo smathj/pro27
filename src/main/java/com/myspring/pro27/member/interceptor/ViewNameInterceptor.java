@@ -6,6 +6,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class ViewNameInterceptor extends HandlerInterceptorAdapter {
+// 인터셉터
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 		try {
@@ -28,8 +30,11 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 	}
 
 	private String getViewName(HttpServletRequest request) throws Exception {
+		
 		String contextPath = request.getContextPath();
+		
 		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");
+		
 		if (uri == null || uri.trim().equals("")) {
 			uri = request.getRequestURI();
 		}
